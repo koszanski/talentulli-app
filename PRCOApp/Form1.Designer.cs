@@ -1,4 +1,4 @@
-﻿namespace procEsportFormApp
+﻿namespace PRCOApp
 {
     partial class Form1
     {

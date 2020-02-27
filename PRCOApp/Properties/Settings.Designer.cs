@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace procEsportFormApp.Properties
+namespace PRCOApp.Properties
 {
 
 

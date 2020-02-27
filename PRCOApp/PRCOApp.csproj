@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0526299D-84AE-4B3E-BFD9-7CA99ACBF2A0}</ProjectGuid>
+    <ProjectGuid>{C80D7869-5BCC-4C49-A1BC-F2244DA7F6EB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>procEsportFormApp</RootNamespace>
-    <AssemblyName>procEsportFormApp</AssemblyName>
+    <RootNamespace>PRCOApp</RootNamespace>
+    <AssemblyName>PRCOApp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
