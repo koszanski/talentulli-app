@@ -32,8 +32,14 @@
             this.startBtn = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.homeBtn = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.gameDropdown = new System.Windows.Forms.ComboBox();
+            this.gamemodeDropdown = new System.Windows.Forms.ComboBox();
+            this.sessionstartBtn = new System.Windows.Forms.Button();
+            this.loginLbl = new System.Windows.Forms.Label();
             this.panelSidebar.SuspendLayout();
             this.panelLogo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panelSidebar
@@ -63,7 +69,7 @@
             this.startBtn.Size = new System.Drawing.Size(218, 87);
             this.startBtn.TabIndex = 1;
             this.startBtn.UseVisualStyleBackColor = true;
-            this.startBtn.Click += new System.EventHandler(this.startBtn_Click);
+            this.startBtn.Click += new System.EventHandler(this.StartBtn_Click);
             // 
             // panelLogo
             // 
@@ -87,20 +93,72 @@
             this.homeBtn.UseVisualStyleBackColor = true;
             this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::PRCOApp.Properties.Resources.typefacelogo200px;
+            this.pictureBox1.Location = new System.Drawing.Point(225, 1);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(400, 80);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // gameDropdown
+            // 
+            this.gameDropdown.FormattingEnabled = true;
+            this.gameDropdown.Location = new System.Drawing.Point(681, 260);
+            this.gameDropdown.Name = "gameDropdown";
+            this.gameDropdown.Size = new System.Drawing.Size(247, 21);
+            this.gameDropdown.TabIndex = 2;
+            // 
+            // gamemodeDropdown
+            // 
+            this.gamemodeDropdown.FormattingEnabled = true;
+            this.gamemodeDropdown.Location = new System.Drawing.Point(681, 287);
+            this.gamemodeDropdown.Name = "gamemodeDropdown";
+            this.gamemodeDropdown.Size = new System.Drawing.Size(247, 21);
+            this.gamemodeDropdown.TabIndex = 3;
+            // 
+            // sessionstartBtn
+            // 
+            this.sessionstartBtn.Location = new System.Drawing.Point(769, 314);
+            this.sessionstartBtn.Name = "sessionstartBtn";
+            this.sessionstartBtn.Size = new System.Drawing.Size(75, 23);
+            this.sessionstartBtn.TabIndex = 4;
+            this.sessionstartBtn.Text = "Start";
+            this.sessionstartBtn.UseVisualStyleBackColor = true;
+            this.sessionstartBtn.Click += new System.EventHandler(this.sessionstartBtn_Click);
+            // 
+            // loginLbl
+            // 
+            this.loginLbl.AutoSize = true;
+            this.loginLbl.Font = new System.Drawing.Font("Roboto Medium", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginLbl.Location = new System.Drawing.Point(676, 25);
+            this.loginLbl.Name = "loginLbl";
+            this.loginLbl.Size = new System.Drawing.Size(66, 25);
+            this.loginLbl.TabIndex = 5;
+            this.loginLbl.Text = "NULL";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.loginLbl);
+            this.Controls.Add(this.sessionstartBtn);
+            this.Controls.Add(this.gamemodeDropdown);
+            this.Controls.Add(this.gameDropdown);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.panelSidebar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "mainForm";
-            this.Text = "Form2";
+            this.Text = "talentulli";
             this.Load += new System.EventHandler(this.mainForm_Load);
             this.panelSidebar.ResumeLayout(false);
             this.panelLogo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -110,5 +168,10 @@
         private System.Windows.Forms.Panel panelLogo;
         private FontAwesome.Sharp.IconButton startBtn;
         private System.Windows.Forms.Button homeBtn;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.ComboBox gameDropdown;
+        private System.Windows.Forms.ComboBox gamemodeDropdown;
+        private System.Windows.Forms.Button sessionstartBtn;
+        private System.Windows.Forms.Label loginLbl;
     }
 }

@@ -14,15 +14,16 @@ namespace PRCOApp
 {
     public partial class mainForm : Form
     {
+        Login currentlogin;
+
         public mainForm(Login newlogin)
         {
             InitializeComponent();
-
+            this.currentlogin = newlogin;
         }
 
 
         //needed pulled sql database objects:
-        //users, for login
         //teams, potentially for verification against possible games that one can select
         //game, gamemode, dropdown before initiating a sesh
 
@@ -42,14 +43,28 @@ namespace PRCOApp
             //show/hide form elements
         }
 
-        private void startBtn_Click(object sender, EventArgs e)
+        private void StartBtn_Click(object sender, EventArgs e)
         {
             //show hide form elements
         }
 
         private void mainForm_Load(object sender, EventArgs e)
         {
+            loginLbl.Text ="Welcome, " + currentlogin.dispLoggedin() + ".";
+
+
             //load appropriate tables into background, check ERD
+            //lookup player's team by playerid.
+            //load table for game, gamemodes
+        }
+
+        private void sessionstartBtn_Click(object sender, EventArgs e)
+        {
+            string selectedGame = gameDropdown.SelectedItem.ToString();
+            string selectedGameMod = gamemodeDropdown.SelectedItem.ToString();
+
+            //go to next form, pass these values over
+
         }
         //pull contents from database into dropdown
         //CRUD functions depending on what is in the dropdown box
