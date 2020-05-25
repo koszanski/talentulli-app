@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PRCOApp
 {
-    class Login
+    public class Login
     {
 
         //application-wide class for saving/retaining logged-in credentials

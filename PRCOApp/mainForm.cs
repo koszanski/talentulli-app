@@ -14,9 +14,10 @@ namespace PRCOApp
 {
     public partial class mainForm : Form
     {
-        public mainForm()
+        public mainForm(Login newlogin)
         {
             InitializeComponent();
+
         }
 
 

@@ -29,12 +29,14 @@ namespace PRCOApp
             try
             {
                 conn.Open();
+                MessageBox.Show("Connection successful.");
+                conn.Close();
             }
 
             catch (MySqlException ex)
             {
                 MessageBox.Show("Connection has failed! " + ex.ToString());
-                //close app
+                Application.Exit();
             }
 
         }
@@ -47,12 +49,27 @@ namespace PRCOApp
             {
                 String theLogin = loginTextBox.Text;
                 String thePassword = passwordTextBox.Text;
+                string quer = "SELECT * FROM user WHERE userLogin = '" + theLogin.Trim() + "' AND userPass = '" + thePassword.Trim() + "'";
 
+                MySqlConnection conn = new MySqlConnection(SQLConnString);
+                MySqlDataAdapter myda = new MySqlDataAdapter(quer, conn);
+                DataTable dbtbl = new DataTable();
+                myda.Fill(dbtbl);
 
-                this.Hide();
-                var mainform = new mainForm();
-                mainform.FormClosed += (s, args) => this.Close();
-                mainform.Show();
+                if (dbtbl.Rows.Count == 1)
+                {
+                    Login newlogin = new Login(theLogin, thePassword);
+
+                    this.Hide();
+                    var mainform = new mainForm(newlogin);
+                    mainform.FormClosed += (s, args) => this.Close();
+                    mainform.Show();
+                }
+
+                else
+                {
+                    MessageBox.Show("Error! Username/password mismatch.");
+                }
                 
             }
 
@@ -60,10 +77,6 @@ namespace PRCOApp
             {
                 MessageBox.Show("Something went wrong! " + ex.ToString());
             }
-            //pull values from textbox into a variable
-            //submit 
-            //try connection again, foreach statement, iterate through login table, followed by password table
-            //if it works, go to new form and carry the credentials over
         }
 
 
