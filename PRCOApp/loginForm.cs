@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using MySql.Data;
+using MySql.Data.MySqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -18,23 +20,51 @@ namespace PRCOApp
             InitializeComponent();
         }
 
+        string SQLConnString = "Server=localhost;Database=esportorgdb;User id=root;Password=;";
+        //potentially have an option to modify this string and designate a specific server?
         private void loginForm_Load(object sender, EventArgs e)
         {
-            //connection to check if everything works
+            MySqlConnection conn = new MySqlConnection(SQLConnString);
+
+            try
+            {
+                conn.Open();
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Connection has failed! " + ex.ToString());
+                //close app
+            }
+
         }
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
+
+
+            try
+            {
+                String theLogin = loginTextBox.Text;
+                String thePassword = passwordTextBox.Text;
+
+
+                this.Hide();
+                var mainform = new mainForm();
+                mainform.FormClosed += (s, args) => this.Close();
+                mainform.Show();
+                
+            }
+
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Something went wrong! " + ex.ToString());
+            }
+            //pull values from textbox into a variable
             //submit 
-            //try connection again, if it works, go to new form and carry the session
+            //try connection again, foreach statement, iterate through login table, followed by password table
+            //if it works, go to new form and carry the credentials over
         }
-
-
-        //add flat button to quit
-
-
-        //form draggability
-
 
 
     }

@@ -16,5 +16,10 @@ namespace PRCOApp
         {
             InitializeComponent();
         }
+
+        private void runningsessionForm_Load(object sender, EventArgs e)
+        {
+            //ascending timer and stop button, later pass the time value into the next form
+        }
     }
 }

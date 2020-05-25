@@ -33,7 +33,6 @@
             this.startBtn = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
             this.homeBtn = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panelSidebar.SuspendLayout();
             this.panelLogo.SuspendLayout();
             this.SuspendLayout();
@@ -45,15 +44,15 @@
             this.panelSidebar.Controls.Add(this.startBtn);
             this.panelSidebar.Controls.Add(this.panelLogo);
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panelSidebar.Location = new System.Drawing.Point(0, 34);
+            this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(220, 734);
+            this.panelSidebar.Size = new System.Drawing.Size(220, 768);
             this.panelSidebar.TabIndex = 0;
             // 
             // startBtn
             // 
             this.startBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.startBtn.FlatAppearance.BorderSize = 0;
+            this.startBtn.FlatAppearance.BorderSize = 4;
             this.startBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.startBtn.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.startBtn.IconChar = FontAwesome.Sharp.IconChar.Play;
@@ -79,7 +78,7 @@
             // homeBtn
             // 
             this.homeBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.homeBtn.FlatAppearance.BorderSize = 0;
+            this.homeBtn.FlatAppearance.BorderSize = 4;
             this.homeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.homeBtn.Image = ((System.Drawing.Image)(resources.GetObject("homeBtn.Image")));
             this.homeBtn.Location = new System.Drawing.Point(0, 0);
@@ -89,14 +88,6 @@
             this.homeBtn.UseVisualStyleBackColor = true;
             this.homeBtn.Click += new System.EventHandler(this.homeBtn_Click);
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1024, 34);
-            this.panel1.TabIndex = 1;
-            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -104,7 +95,6 @@
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1024, 768);
             this.Controls.Add(this.panelSidebar);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "mainForm";
             this.Text = "Form2";
@@ -121,6 +111,5 @@
         private System.Windows.Forms.Panel panelLogo;
         private FontAwesome.Sharp.IconButton startBtn;
         private System.Windows.Forms.Button homeBtn;
-        private System.Windows.Forms.Panel panel1;
     }
 }
