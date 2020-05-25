@@ -28,7 +28,7 @@ namespace PRCOApp
         //pull statistics types matching to game mode (AND IDEALLY CHECK AGAINST GAME)
 
         //session (obvious to alter)
-        //stats (obvious to lateR)
+        //stats (obvious to alter)
 
         //potentially: upcoming event display by pulling event?
         //announcements

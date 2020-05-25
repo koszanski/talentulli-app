@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(loginForm));
             this.loginTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
@@ -84,7 +83,7 @@
             // 
             // logoPictureBox
             // 
-            this.logoPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("logoPictureBox.Image")));
+            this.logoPictureBox.Image = global::PRCOApp.Properties.Resources.logo200x200;
             this.logoPictureBox.InitialImage = null;
             this.logoPictureBox.Location = new System.Drawing.Point(89, 23);
             this.logoPictureBox.Name = "logoPictureBox";

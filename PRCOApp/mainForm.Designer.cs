@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(mainForm));
             this.panelSidebar = new System.Windows.Forms.Panel();
             this.startBtn = new FontAwesome.Sharp.IconButton();
             this.panelLogo = new System.Windows.Forms.Panel();
@@ -80,7 +79,7 @@
             this.homeBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.homeBtn.FlatAppearance.BorderSize = 4;
             this.homeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeBtn.Image = ((System.Drawing.Image)(resources.GetObject("homeBtn.Image")));
+            this.homeBtn.Image = global::PRCOApp.Properties.Resources.logo200x200;
             this.homeBtn.Location = new System.Drawing.Point(0, 0);
             this.homeBtn.Name = "homeBtn";
             this.homeBtn.Size = new System.Drawing.Size(218, 194);
