@@ -12,9 +12,11 @@ namespace PRCOApp
 {
     public partial class runningsessionForm : Form
     {
+        Game currentgame;
         public runningsessionForm(Game selectedGame)
         {
             InitializeComponent();
+            this.currentgame = selectedGame;
         }
 
         private void runningsessionForm_Load(object sender, EventArgs e)
