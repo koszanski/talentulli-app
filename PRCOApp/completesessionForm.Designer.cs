@@ -28,64 +28,64 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.stattypeDropdown = new System.Windows.Forms.ComboBox();
+            this.currentvalTxt = new System.Windows.Forms.Label();
+            this.desiredvalTxt = new System.Windows.Forms.TextBox();
+            this.cancelBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.submitBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // stattypeDropdown
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(120, 99);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(174, 21);
-            this.comboBox1.TabIndex = 0;
+            this.stattypeDropdown.FormattingEnabled = true;
+            this.stattypeDropdown.Location = new System.Drawing.Point(120, 99);
+            this.stattypeDropdown.Name = "stattypeDropdown";
+            this.stattypeDropdown.Size = new System.Drawing.Size(174, 21);
+            this.stattypeDropdown.TabIndex = 0;
             // 
-            // label1
+            // currentvalTxt
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(191, 134);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.currentvalTxt.AutoSize = true;
+            this.currentvalTxt.Location = new System.Drawing.Point(133, 134);
+            this.currentvalTxt.Name = "currentvalTxt";
+            this.currentvalTxt.Size = new System.Drawing.Size(35, 13);
+            this.currentvalTxt.TabIndex = 1;
+            this.currentvalTxt.Text = "label1";
             // 
-            // textBox1
+            // desiredvalTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(120, 150);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(174, 20);
-            this.textBox1.TabIndex = 2;
+            this.desiredvalTxt.Location = new System.Drawing.Point(120, 150);
+            this.desiredvalTxt.Name = "desiredvalTxt";
+            this.desiredvalTxt.Size = new System.Drawing.Size(174, 20);
+            this.desiredvalTxt.TabIndex = 2;
             // 
-            // button1
+            // cancelBtn
             // 
-            this.button1.Location = new System.Drawing.Point(120, 196);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 23);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.cancelBtn.Location = new System.Drawing.Point(120, 196);
+            this.cancelBtn.Name = "cancelBtn";
+            this.cancelBtn.Size = new System.Drawing.Size(90, 23);
+            this.cancelBtn.TabIndex = 3;
+            this.cancelBtn.Text = "Cancel";
+            this.cancelBtn.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // saveBtn
             // 
-            this.button2.Location = new System.Drawing.Point(214, 196);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(80, 23);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.saveBtn.Location = new System.Drawing.Point(214, 196);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(80, 23);
+            this.saveBtn.TabIndex = 4;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // submitBtn
             // 
-            this.button3.Location = new System.Drawing.Point(120, 242);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(174, 23);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.submitBtn.Location = new System.Drawing.Point(120, 242);
+            this.submitBtn.Name = "submitBtn";
+            this.submitBtn.Size = new System.Drawing.Size(174, 23);
+            this.submitBtn.TabIndex = 5;
+            this.submitBtn.Text = "Submit";
+            this.submitBtn.UseVisualStyleBackColor = true;
             // 
             // completesessionForm
             // 
@@ -93,14 +93,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(431, 409);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.submitBtn);
+            this.Controls.Add(this.saveBtn);
+            this.Controls.Add(this.cancelBtn);
+            this.Controls.Add(this.desiredvalTxt);
+            this.Controls.Add(this.currentvalTxt);
+            this.Controls.Add(this.stattypeDropdown);
             this.Name = "completesessionForm";
-            this.Text = "completeSession";
+            this.Text = "Session Submission";
             this.Load += new System.EventHandler(this.completesessionForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,11 +109,11 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox stattypeDropdown;
+        private System.Windows.Forms.Label currentvalTxt;
+        private System.Windows.Forms.TextBox desiredvalTxt;
+        private System.Windows.Forms.Button cancelBtn;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button submitBtn;
     }
 }

@@ -61,9 +61,13 @@ namespace PRCOApp
         private void sessionstartBtn_Click(object sender, EventArgs e)
         {
             string selectedGame = gameDropdown.SelectedItem.ToString();
-            string selectedGameMod = gamemodeDropdown.SelectedItem.ToString();
+            string selectedGameMode = gamemodeDropdown.SelectedItem.ToString();
 
-            //go to next form, pass these values over
+            Game newgame = new Game(selectedGame, selectedGameMode);
+            this.Hide();
+            var runningsessionform = new runningsessionForm(newgame);
+            runningsessionform.FormClosed += (s, args) => this.Close();
+            runningsessionform.Show();
 
         }
         //pull contents from database into dropdown

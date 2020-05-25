@@ -37,7 +37,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(195, 286);
+            this.button1.Location = new System.Drawing.Point(195, 281);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -83,7 +83,7 @@
             this.Controls.Add(this.timerLbl);
             this.Controls.Add(this.button1);
             this.Name = "runningsessionForm";
-            this.Text = "runningsessionForm";
+            this.Text = "Session in progress...";
             this.Load += new System.EventHandler(this.runningsessionForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

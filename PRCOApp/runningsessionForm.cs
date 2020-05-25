@@ -12,7 +12,7 @@ namespace PRCOApp
 {
     public partial class runningsessionForm : Form
     {
-        public runningsessionForm()
+        public runningsessionForm(Game selectedGame)
         {
             InitializeComponent();
         }

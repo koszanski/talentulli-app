@@ -2,18 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Data;
 using System.Threading.Tasks;
 
 namespace PRCOApp
 {
     public class Game
     {
-        DataTable gameGame;
-        DataTable gameGameMode;
+        string gameGame;
+        string gameGameMode;
 
 
-        public Game(DataTable theGame, DataTable theGameMode)
+        public Game(string theGame, string theGameMode)
         {
             gameGame = theGame;
             gameGameMode = theGameMode;
