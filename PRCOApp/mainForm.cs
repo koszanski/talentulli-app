@@ -60,14 +60,14 @@ namespace PRCOApp
             loginLbl.Text = "Welcome, " + currentlogin.dispLoggedin() + ".";
             try
             {
-                string quer;
+                string quer = "";
                 int teamID;
                 MySqlConnection conn = new MySqlConnection(successfulConn);
                 MySqlDataAdapter myda = new MySqlDataAdapter(quer, conn);
 
-                //lookup player/team by playerid, drop all of the teams player is assigned to into data table, drop that into combo box somehow
-                //lookup gameid associated with team, then lookup game name from gameid
-                //lookup gamemodes associated with gameid
+                //lookup player/team by user ID name, drop all of the teams player is assigned to into data table, drop that into combo box somehow
+                //lookup gameid associated with team table, then lookup game name from gameid
+                //lookup gamemodes associated with gameid field
             }
 
             catch (MySqlException)

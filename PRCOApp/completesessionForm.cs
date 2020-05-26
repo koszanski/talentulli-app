@@ -19,11 +19,13 @@ namespace PRCOApp
 
         private void completesessionForm_Load(object sender, EventArgs e)
         {
-            //IMPORTANT: generate a textbox foreach value??
-            //shitty solution: have a big ass amount of textboxes, show/hide depending on 
-            //one textbox, have it cycle through each value?
+            //okay solution: dropdown to select a value, label that displays value of committed value, save button to commit to memory and submit button that sends query
 
-            //okay solution: dropdown to select a value, label that displays value of committed value, save button and submit button that sends query
+            //needed new values to pull:
+            //statistic types associated with specific game-mode
+            
+            //final result will be an insert query into game session, then
+            //multiple statistics for every single one committed to memory
 
         }
 

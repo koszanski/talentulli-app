@@ -58,6 +58,7 @@ namespace PRCOApp
 
                 if (dbtbl.Rows.Count == 1)
                 {
+                    //pull user ID from datatable, append it to "login" class
                     Login newlogin = new Login(theLogin, thePassword);
 
                     this.Hide();

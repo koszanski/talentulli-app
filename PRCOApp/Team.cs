@@ -9,7 +9,12 @@ namespace PRCOApp
     class Team
     {
 
-        //populate, have a getter/setter for TeamID, team name
+        //populate, have a getter/setter for TeamID, team name, team gameID
+
+        public Team()
+        {
+
+        }
 
 
     }
