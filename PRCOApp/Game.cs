@@ -23,5 +23,15 @@ namespace PRCOApp
             gameGame = null;
             gameGameMode = null;
         }
+
+        public string getGame()
+        {
+            return gameGame;
+        }
+
+        public string getGameMode()
+        {
+            return gameGameMode;
+        }
     }
 }
