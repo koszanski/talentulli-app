@@ -28,12 +28,12 @@ namespace PRCOApp
 
         }
 
-
         public string dispLoggedin()
         {
-            string output = loginUser;
-            return output;
+            return loginUser;
         }
+
+
 
     }
 

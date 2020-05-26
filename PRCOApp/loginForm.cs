@@ -61,7 +61,7 @@ namespace PRCOApp
                     Login newlogin = new Login(theLogin, thePassword);
 
                     this.Hide();
-                    var mainform = new mainForm(newlogin);
+                    var mainform = new mainForm(newlogin, SQLConnString);
                     mainform.FormClosed += (s, args) => this.Close();
                     mainform.Show();
                 }

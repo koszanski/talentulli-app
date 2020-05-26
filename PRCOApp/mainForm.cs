@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,12 +15,18 @@ namespace PRCOApp
 {
     public partial class mainForm : Form
     {
+        string successfulConn;
         Login currentlogin;
+        DataTable gameTable;
+        DataTable gamemodeTable;
+        DataTable teamTable;
+        //datatable for teams?
 
-        public mainForm(Login newlogin)
+        public mainForm(Login newlogin, string SQLConnString)
         {
             InitializeComponent();
             this.currentlogin = newlogin;
+            this.successfulConn = SQLConnString;
         }
 
 
@@ -50,20 +57,34 @@ namespace PRCOApp
 
         private void mainForm_Load(object sender, EventArgs e)
         {
-            loginLbl.Text ="Welcome, " + currentlogin.dispLoggedin() + ".";
+            loginLbl.Text = "Welcome, " + currentlogin.dispLoggedin() + ".";
+            try
+            {
+                string quer;
+                int teamID;
+                MySqlConnection conn = new MySqlConnection(successfulConn);
+                MySqlDataAdapter myda = new MySqlDataAdapter(quer, conn);
 
+                //lookup player/team by playerid, drop all of the teams player is assigned to into data table, drop that into combo box somehow
+                //lookup gameid associated with team, then lookup game name from gameid
+                //lookup gamemodes associated with gameid
+            }
 
-            //load appropriate tables into background, check ERD
-            //lookup player's team by playerid.
-            //load table for game, gamemodes
+            catch (MySqlException)
+            {
+
+            }
+
         }
 
         private void sessionstartBtn_Click(object sender, EventArgs e)
         {
-            string selectedGame = gameDropdown.SelectedItem.ToString();
+            string selectedTeam = teamDropdown.SelectedItem.ToString();
             string selectedGameMode = gamemodeDropdown.SelectedItem.ToString();
 
-            Game newgame = new Game(selectedGame, selectedGameMode);
+            Game newgame = new Game();
+            newgame.setGameMode(selectedTeam);
+
             this.Hide();
             var runningsessionform = new runningsessionForm(newgame);
             runningsessionform.FormClosed += (s, args) => this.Close();

@@ -23,5 +23,11 @@ namespace PRCOApp
         {
             //ascending timer and stop button, later pass the time value into the next form
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //relatively simple, pass values given from previous forms along with the timestamp
+
+        }
     }
 }

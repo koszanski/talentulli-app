@@ -124,8 +124,10 @@
     <Compile Include="runningsessionForm.Designer.cs">
       <DependentUpon>runningsessionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Team.cs" />
     <EmbeddedResource Include="completesessionForm.resx">
       <DependentUpon>completesessionForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="loginForm.resx">
       <DependentUpon>loginForm.cs</DependentUpon>
@@ -162,9 +164,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo200x200.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\typefacelogo helveticaneueltstd.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\typefacelogo200px.png" />

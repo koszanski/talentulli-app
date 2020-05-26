@@ -26,5 +26,15 @@ namespace PRCOApp
             //okay solution: dropdown to select a value, label that displays value of committed value, save button and submit button that sends query
 
         }
+
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void submitBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
