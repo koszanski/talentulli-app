@@ -124,6 +124,7 @@
     <Compile Include="runningsessionForm.Designer.cs">
       <DependentUpon>runningsessionForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statistic.cs" />
     <Compile Include="Team.cs" />
     <EmbeddedResource Include="completesessionForm.resx">
       <DependentUpon>completesessionForm.cs</DependentUpon>

@@ -12,9 +12,11 @@ namespace PRCOApp
 {
     public partial class runningsessionForm : Form
     {
-        //currently logged in user(?)
         Game runninggame;
         Team runningteam;
+        string startDateTimeSQLForm;
+        int i = 1;
+        DateTime ticker = new DateTime();
         //timer value
         public runningsessionForm(Game selectedGame, Team selectedTeam)
         {
@@ -25,13 +27,26 @@ namespace PRCOApp
 
         private void runningsessionForm_Load(object sender, EventArgs e)
         {
-            //ascending timer and stop button, later pass the time value into the next form
+            timer1.Enabled = true;
+            DateTime startDateTime = DateTime.Now;
+            startDateTimeSQLForm = startDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //relatively simple, pass values given from previous forms along with the timestamp
+            timer1.Enabled = false;
+            DateTime endDateTime = DateTime.Now;
+            string endDateTimeSQLForm = endDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
+            this.Hide();
+            var completesessionForm = new completesessionForm(runninggame, runningteam, startDateTimeSQLForm, endDateTimeSQLForm);
+            completesessionForm.FormClosed += (s, args) => this.Close();
+            completesessionForm.Show();
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            timerLbl.Text = ticker.AddSeconds(i++).ToString("HH:mm:ss");
         }
     }
 }
