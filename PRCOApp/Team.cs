@@ -15,12 +15,14 @@ namespace PRCOApp
 
         public Team(int theID, int theteamGameID)
         {
-
+            teamID = theID;
+            teamGameID = theteamGameID;
         }
 
         public Team()
         {
-
+            teamID = 0;
+            teamGameID = 0;
         }
 
         public void setTeamID(int theID)

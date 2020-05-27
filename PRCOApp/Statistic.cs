@@ -6,12 +6,28 @@ using System.Threading.Tasks;
 
 namespace PRCOApp
 {
-    //stat value
-    //stattype value
-    //gamemode id
-    //
-
-    class Statistic
+    public class Statistic
     {
+
+        int statID;
+        int statVal;
+        int statTypeID;
+
+        public Statistic(int theID, int theStatVal, int theTypeID)
+        {
+            statID = theID;
+            statVal = theStatVal;
+            statTypeID = theTypeID;
+        }
+
+        public Statistic()
+        {
+            statID = 0;
+            statVal = 0;
+            statTypeID = 0;
+        }
+
+
+
     }
 }
