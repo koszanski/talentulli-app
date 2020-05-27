@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -74,34 +75,8 @@ namespace PRCOApp
                 teamDropdown.DisplayMember = "teamID";
                 teamDropdown.BindingContext = this.BindingContext;
 
-                //set selected item in dropdown to class
-                //toss this into a method?
-                int initialID = int.Parse(teamDropdown.Text);
-                currentTeam.setTeamID(initialID);
-
-
-                string quer2 = "SELECT * FROM team WHERE teamID = '" + currentTeam.getTeamID().ToString().Trim() + "'";
-                MySqlConnection conn2 = new MySqlConnection(successfulConn);
-                MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
-                teamTable = new DataTable();
-                myda2.Fill(teamTable);
-
-                string teamname = (string)teamTable.Rows[0][1];
-                teamnameLbl.Text = teamname;
-
-                int initialGameID = int.Parse(teamTable.Rows[0][2].ToString());
-                currentTeam.setteamGameID(initialGameID);
-
-                string quer3 = "SELECT * FROM game WHERE gameID = '" + currentTeam.getGameID().ToString().Trim() +  "'";
-                MySqlConnection conn3 = new MySqlConnection(successfulConn);
-                MySqlDataAdapter myda3 = new MySqlDataAdapter(quer3, conn3);
-                gameTable = new DataTable();
-                myda3.Fill(gameTable);
-
-                string gameName = (string)gameTable.Rows[0][1];
-                gamenameLbl.Text = gameName;
-                            
-               
+                labelQuery();
+                                           
             }
 
             catch (MySqlException ex)
@@ -110,6 +85,35 @@ namespace PRCOApp
             }
 
         }
+
+        public void labelQuery()
+        {
+            int savedID = int.Parse(teamDropdown.Text);
+            currentTeam.setTeamID(savedID);
+
+
+            string quer2 = "SELECT * FROM team WHERE teamID = '" + currentTeam.getTeamID().ToString().Trim() + "'";
+            MySqlConnection conn2 = new MySqlConnection(successfulConn);
+            MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
+            teamTable = new DataTable();
+            myda2.Fill(teamTable);
+
+            string teamname = (string)teamTable.Rows[0][1];
+            teamnameLbl.Text = teamname;
+
+            int initialGameID = int.Parse(teamTable.Rows[0][2].ToString());
+            currentTeam.setteamGameID(initialGameID);
+
+            string quer3 = "SELECT * FROM game WHERE gameID = '" + currentTeam.getGameID().ToString().Trim() + "'";
+            MySqlConnection conn3 = new MySqlConnection(successfulConn);
+            MySqlDataAdapter myda3 = new MySqlDataAdapter(quer3, conn3);
+            gameTable = new DataTable();
+            myda3.Fill(gameTable);
+
+            string gameName = (string)gameTable.Rows[0][1];
+            gamenameLbl.Text = gameName;
+        }
+           
 
         private void sessionstartBtn_Click(object sender, EventArgs e)
         {
@@ -128,18 +132,9 @@ namespace PRCOApp
 
         private void saveteamBtn_Click(object sender, EventArgs e)
         {
-            int savedID = int.Parse(teamDropdown.SelectedItem.ToString());
-            currentTeam.setTeamID(savedID);
+            labelQuery();
 
-            string teamname = (string)teamTable.Rows[savedID][2];
-            teamnameLbl.Text = teamname;
-            //commit selected team value to Team class.
-
-            string quer2 = "SELECT * FROM game_mode WHERE";
-            MySqlConnection conn2 = new MySqlConnection(successfulConn);
-            MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
-            gameTable = new DataTable();
-            myda2.Fill(gameTable);
+            //gamemode query
 
             gamemodeDropdown.Enabled = true;
             sessionstartBtn.Enabled = true;
