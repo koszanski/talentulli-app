@@ -60,19 +60,25 @@ namespace PRCOApp
             loginLbl.Text = "Welcome, " + currentlogin.dispLoggedin() + ".";
             try
             {
-                string quer = "";
-                int teamID;
+                 
+                string quer1 = "SELECT * FROM team_players WHERE teamPlayerID = '" + (currentlogin.getID()).ToString().Trim() + "'";
+
                 MySqlConnection conn = new MySqlConnection(successfulConn);
-                MySqlDataAdapter myda = new MySqlDataAdapter(quer, conn);
+                MySqlDataAdapter myda = new MySqlDataAdapter(quer1, conn);
+                teamTable = new DataTable();
+                myda.Fill(teamTable);
+
 
                 //lookup player/team by user ID name, drop all of the teams player is assigned to into data table, drop that into combo box somehow
+                
+                
                 //lookup gameid associated with team table, then lookup game name from gameid
                 //lookup gamemodes associated with gameid field
             }
 
-            catch (MySqlException)
+            catch (MySqlException ex)
             {
-
+                MessageBox.Show("Something went wrong! " + ex.ToString());
             }
 
         }
@@ -90,6 +96,18 @@ namespace PRCOApp
             runningsessionform.FormClosed += (s, args) => this.Close();
             runningsessionform.Show();
 
+        }
+
+        private void saveteamBtn_Click(object sender, EventArgs e)
+        {
+
+            //commit selected team value to Team class.
+
+            string quer2 = "SELECT * FROM ";
+            MySqlConnection conn2 = new MySqlConnection(successfulConn);
+            MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
+            gameTable = new DataTable();
+            myda2.Fill(gameTable);
         }
         //pull contents from database into dropdown
         //CRUD functions depending on what is in the dropdown box

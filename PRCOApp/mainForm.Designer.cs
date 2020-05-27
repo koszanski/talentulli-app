@@ -37,6 +37,7 @@
             this.sessionstartBtn = new System.Windows.Forms.Button();
             this.loginLbl = new System.Windows.Forms.Label();
             this.teamDropdown = new System.Windows.Forms.ComboBox();
+            this.saveteamBtn = new System.Windows.Forms.Button();
             this.panelSidebar.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -105,14 +106,14 @@
             // gamemodeDropdown
             // 
             this.gamemodeDropdown.FormattingEnabled = true;
-            this.gamemodeDropdown.Location = new System.Drawing.Point(681, 287);
+            this.gamemodeDropdown.Location = new System.Drawing.Point(681, 317);
             this.gamemodeDropdown.Name = "gamemodeDropdown";
             this.gamemodeDropdown.Size = new System.Drawing.Size(247, 21);
             this.gamemodeDropdown.TabIndex = 3;
             // 
             // sessionstartBtn
             // 
-            this.sessionstartBtn.Location = new System.Drawing.Point(768, 314);
+            this.sessionstartBtn.Location = new System.Drawing.Point(772, 344);
             this.sessionstartBtn.Name = "sessionstartBtn";
             this.sessionstartBtn.Size = new System.Drawing.Size(75, 23);
             this.sessionstartBtn.TabIndex = 4;
@@ -138,12 +139,23 @@
             this.teamDropdown.Size = new System.Drawing.Size(247, 21);
             this.teamDropdown.TabIndex = 6;
             // 
+            // saveteamBtn
+            // 
+            this.saveteamBtn.Location = new System.Drawing.Point(772, 288);
+            this.saveteamBtn.Name = "saveteamBtn";
+            this.saveteamBtn.Size = new System.Drawing.Size(75, 23);
+            this.saveteamBtn.TabIndex = 7;
+            this.saveteamBtn.Text = "Select Team";
+            this.saveteamBtn.UseVisualStyleBackColor = true;
+            this.saveteamBtn.Click += new System.EventHandler(this.saveteamBtn_Click);
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.saveteamBtn);
             this.Controls.Add(this.teamDropdown);
             this.Controls.Add(this.loginLbl);
             this.Controls.Add(this.sessionstartBtn);
@@ -173,5 +185,6 @@
         private System.Windows.Forms.Button sessionstartBtn;
         private System.Windows.Forms.Label loginLbl;
         private System.Windows.Forms.ComboBox teamDropdown;
+        private System.Windows.Forms.Button saveteamBtn;
     }
 }

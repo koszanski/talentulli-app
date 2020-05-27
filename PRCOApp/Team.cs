@@ -6,13 +6,17 @@ using System.Threading.Tasks;
 
 namespace PRCOApp
 {
-    class Team
+    public class Team
     {
-
+        int teamID;
+        string teamName;
+        int teamGameID;
         //populate, have a getter/setter for TeamID, team name, team gameID
 
         public Team()
         {
+
+
 
         }
 

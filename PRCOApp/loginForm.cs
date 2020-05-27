@@ -58,8 +58,8 @@ namespace PRCOApp
 
                 if (dbtbl.Rows.Count == 1)
                 {
-                    //pull user ID from datatable, append it to "login" class
-                    Login newlogin = new Login(theLogin, thePassword);
+                    int theID = dbtbl.Rows[0].Field<int>(0);
+                    Login newlogin = new Login(theID, theLogin, thePassword);
 
                     this.Hide();
                     var mainform = new mainForm(newlogin, SQLConnString);

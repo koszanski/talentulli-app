@@ -11,11 +11,13 @@ namespace PRCOApp
 
         //application-wide class for saving/retaining logged-in credentials
 
+        int loginID;
         string loginUser;
         string loginPass;
 
-        public Login(string theLogin, string thePassword)
+        public Login(int theID, string theLogin, string thePassword)
         {
+            loginID = theID;
             loginUser = theLogin;
             loginPass = thePassword;
         }
@@ -31,6 +33,11 @@ namespace PRCOApp
         public string dispLoggedin()
         {
             return loginUser;
+        }
+
+        public int getID()
+        {
+            return loginID;
         }
 
 
