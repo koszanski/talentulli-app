@@ -10,11 +10,10 @@ namespace PRCOApp
     public class Team
     {
         int teamID;
-        string teamName;
         int teamGameID;
         //populate, have a getter/setter for TeamID, team name, team gameID
 
-        public Team(int theID, string theteamName, int theteamGameID)
+        public Team(int theID, int theteamGameID)
         {
 
         }

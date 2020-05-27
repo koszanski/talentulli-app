@@ -13,13 +13,14 @@ namespace PRCOApp
     public partial class runningsessionForm : Form
     {
         //currently logged in user(?)
-        Game currentgame; //and gamemode
-        //team
+        Game runninggame;
+        Team runningteam;
         //timer value
-        public runningsessionForm(Game selectedGame)
+        public runningsessionForm(Game selectedGame, Team selectedTeam)
         {
             InitializeComponent();
-            this.currentgame = selectedGame;
+            this.runninggame = selectedGame;
+            this.runningteam = selectedTeam;
         }
 
         private void runningsessionForm_Load(object sender, EventArgs e)

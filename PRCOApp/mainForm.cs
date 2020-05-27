@@ -19,11 +19,9 @@ namespace PRCOApp
         string successfulConn;
         Login currentlogin;
         Team currentTeam = new Team();
-        DataTable gamemodeTable;
         DataTable teamTable;
         DataTable teamPlayerTable;
         DataTable gameTable;
-        //datatable for teams?
 
         public mainForm(Login newlogin, string SQLConnString)
         {
@@ -88,43 +86,49 @@ namespace PRCOApp
 
         public void labelQuery()
         {
-            int savedID = int.Parse(teamDropdown.Text);
-            currentTeam.setTeamID(savedID);
+            try
+            {
+                int savedID = int.Parse(teamDropdown.Text);
+                currentTeam.setTeamID(savedID);
 
+                string quer2 = "SELECT * FROM team WHERE teamID = '" + currentTeam.getTeamID().ToString().Trim() + "'";
+                MySqlConnection conn2 = new MySqlConnection(successfulConn);
+                MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
+                teamTable = new DataTable();
+                myda2.Fill(teamTable);
 
-            string quer2 = "SELECT * FROM team WHERE teamID = '" + currentTeam.getTeamID().ToString().Trim() + "'";
-            MySqlConnection conn2 = new MySqlConnection(successfulConn);
-            MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
-            teamTable = new DataTable();
-            myda2.Fill(teamTable);
+                string teamname = (string)teamTable.Rows[0][1];
+                teamnameLbl.Text = teamname;
 
-            string teamname = (string)teamTable.Rows[0][1];
-            teamnameLbl.Text = teamname;
+                int initialGameID = int.Parse(teamTable.Rows[0][2].ToString());
+                currentTeam.setteamGameID(initialGameID);
 
-            int initialGameID = int.Parse(teamTable.Rows[0][2].ToString());
-            currentTeam.setteamGameID(initialGameID);
+                string quer3 = "SELECT * FROM game WHERE gameID = '" + currentTeam.getGameID().ToString().Trim() + "'";
+                MySqlConnection conn3 = new MySqlConnection(successfulConn);
+                MySqlDataAdapter myda3 = new MySqlDataAdapter(quer3, conn3);
+                gameTable = new DataTable();
+                myda3.Fill(gameTable);
 
-            string quer3 = "SELECT * FROM game WHERE gameID = '" + currentTeam.getGameID().ToString().Trim() + "'";
-            MySqlConnection conn3 = new MySqlConnection(successfulConn);
-            MySqlDataAdapter myda3 = new MySqlDataAdapter(quer3, conn3);
-            gameTable = new DataTable();
-            myda3.Fill(gameTable);
+                string gameName = (string)gameTable.Rows[0][1];
+                gamenameLbl.Text = gameName;
+            }
 
-            string gameName = (string)gameTable.Rows[0][1];
-            gamenameLbl.Text = gameName;
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Something went wrong! " + ex.ToString());
+            }          
         }
            
 
         private void sessionstartBtn_Click(object sender, EventArgs e)
         {
-            string selectedTeam = teamDropdown.SelectedItem.ToString();
             string selectedGameMode = gamemodeDropdown.SelectedItem.ToString();
 
             Game newgame = new Game();
-            newgame.setGameMode(selectedTeam);
+            newgame.setGameMode(selectedGameMode);
 
             this.Hide();
-            var runningsessionform = new runningsessionForm(newgame);
+            var runningsessionform = new runningsessionForm(newgame, currentTeam);
             runningsessionform.FormClosed += (s, args) => this.Close();
             runningsessionform.Show();
 
@@ -134,13 +138,27 @@ namespace PRCOApp
         {
             labelQuery();
 
-            //gamemode query
+            try
+            {
+                string quer4 = "SELECT * FROM game_mode WHERE gameID = '" + currentTeam.getGameID().ToString().Trim() + "'";
+                MySqlConnection conn4 = new MySqlConnection(successfulConn);
+                MySqlDataAdapter myda4 = new MySqlDataAdapter(quer4, conn4);
+                DataTable gamemodeTable = new DataTable();
+                myda4.Fill(gamemodeTable);
 
-            gamemodeDropdown.Enabled = true;
-            sessionstartBtn.Enabled = true;
+                gamemodeDropdown.DataSource = gamemodeTable.DefaultView;
+                gamemodeDropdown.DisplayMember = "gamemodeName";
+                gamemodeDropdown.BindingContext = this.BindingContext;
+
+                gamemodeDropdown.Enabled = true;
+                sessionstartBtn.Enabled = true;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Something went wrong! " + ex.ToString());
+            }
+            
 
         }
-        //lookup gameid associated with team table, then lookup game name from gameid
-        //lookup gamemodes associated with gameid field
     }
 }
