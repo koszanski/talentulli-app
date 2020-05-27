@@ -17,9 +17,11 @@ namespace PRCOApp
     {
         string successfulConn;
         Login currentlogin;
-        DataTable gameTable;
+        Team currentTeam = new Team();
         DataTable gamemodeTable;
         DataTable teamTable;
+        DataTable teamPlayerTable;
+        DataTable gameTable;
         //datatable for teams?
 
         public mainForm(Login newlogin, string SQLConnString)
@@ -65,15 +67,41 @@ namespace PRCOApp
 
                 MySqlConnection conn = new MySqlConnection(successfulConn);
                 MySqlDataAdapter myda = new MySqlDataAdapter(quer1, conn);
+                teamPlayerTable = new DataTable();
+                myda.Fill(teamPlayerTable);
+
+                teamDropdown.DataSource = teamPlayerTable.DefaultView;
+                teamDropdown.DisplayMember = "teamID";
+                teamDropdown.BindingContext = this.BindingContext;
+
+                //set selected item in dropdown to class
+                //toss this into a method?
+                int initialID = int.Parse(teamDropdown.Text);
+                currentTeam.setTeamID(initialID);
+
+
+                string quer2 = "SELECT * FROM team WHERE teamID = '" + currentTeam.getTeamID().ToString().Trim() + "'";
+                MySqlConnection conn2 = new MySqlConnection(successfulConn);
+                MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
                 teamTable = new DataTable();
-                myda.Fill(teamTable);
+                myda2.Fill(teamTable);
 
+                string teamname = (string)teamTable.Rows[0][1];
+                teamnameLbl.Text = teamname;
 
-                //lookup player/team by user ID name, drop all of the teams player is assigned to into data table, drop that into combo box somehow
-                
-                
-                //lookup gameid associated with team table, then lookup game name from gameid
-                //lookup gamemodes associated with gameid field
+                int initialGameID = int.Parse(teamTable.Rows[0][2].ToString());
+                currentTeam.setteamGameID(initialGameID);
+
+                string quer3 = "SELECT * FROM game WHERE gameID = '" + currentTeam.getGameID().ToString().Trim() +  "'";
+                MySqlConnection conn3 = new MySqlConnection(successfulConn);
+                MySqlDataAdapter myda3 = new MySqlDataAdapter(quer3, conn3);
+                gameTable = new DataTable();
+                myda3.Fill(gameTable);
+
+                string gameName = (string)gameTable.Rows[0][1];
+                gamenameLbl.Text = gameName;
+                            
+               
             }
 
             catch (MySqlException ex)
@@ -100,16 +128,24 @@ namespace PRCOApp
 
         private void saveteamBtn_Click(object sender, EventArgs e)
         {
+            int savedID = int.Parse(teamDropdown.SelectedItem.ToString());
+            currentTeam.setTeamID(savedID);
 
+            string teamname = (string)teamTable.Rows[savedID][2];
+            teamnameLbl.Text = teamname;
             //commit selected team value to Team class.
 
-            string quer2 = "SELECT * FROM ";
+            string quer2 = "SELECT * FROM game_mode WHERE";
             MySqlConnection conn2 = new MySqlConnection(successfulConn);
             MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
             gameTable = new DataTable();
             myda2.Fill(gameTable);
+
+            gamemodeDropdown.Enabled = true;
+            sessionstartBtn.Enabled = true;
+
         }
-        //pull contents from database into dropdown
-        //CRUD functions depending on what is in the dropdown box
+        //lookup gameid associated with team table, then lookup game name from gameid
+        //lookup gamemodes associated with gameid field
     }
 }

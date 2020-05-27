@@ -34,6 +34,11 @@ namespace PRCOApp
             return gameGameMode;
         }
 
+        public void setGame(string theGame)
+        {
+            gameGame = theGame;
+        }
+
         public void setGameMode(string theGameMode)
         {
             gameGameMode = theGameMode;

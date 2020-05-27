@@ -38,6 +38,8 @@
             this.loginLbl = new System.Windows.Forms.Label();
             this.teamDropdown = new System.Windows.Forms.ComboBox();
             this.saveteamBtn = new System.Windows.Forms.Button();
+            this.teamnameLbl = new System.Windows.Forms.Label();
+            this.gamenameLbl = new System.Windows.Forms.Label();
             this.panelSidebar.SuspendLayout();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -105,6 +107,7 @@
             // 
             // gamemodeDropdown
             // 
+            this.gamemodeDropdown.Enabled = false;
             this.gamemodeDropdown.FormattingEnabled = true;
             this.gamemodeDropdown.Location = new System.Drawing.Point(681, 317);
             this.gamemodeDropdown.Name = "gamemodeDropdown";
@@ -113,6 +116,7 @@
             // 
             // sessionstartBtn
             // 
+            this.sessionstartBtn.Enabled = false;
             this.sessionstartBtn.Location = new System.Drawing.Point(772, 344);
             this.sessionstartBtn.Name = "sessionstartBtn";
             this.sessionstartBtn.Size = new System.Drawing.Size(75, 23);
@@ -136,12 +140,12 @@
             this.teamDropdown.FormattingEnabled = true;
             this.teamDropdown.Location = new System.Drawing.Point(681, 261);
             this.teamDropdown.Name = "teamDropdown";
-            this.teamDropdown.Size = new System.Drawing.Size(247, 21);
+            this.teamDropdown.Size = new System.Drawing.Size(75, 21);
             this.teamDropdown.TabIndex = 6;
             // 
             // saveteamBtn
             // 
-            this.saveteamBtn.Location = new System.Drawing.Point(772, 288);
+            this.saveteamBtn.Location = new System.Drawing.Point(681, 288);
             this.saveteamBtn.Name = "saveteamBtn";
             this.saveteamBtn.Size = new System.Drawing.Size(75, 23);
             this.saveteamBtn.TabIndex = 7;
@@ -149,12 +153,32 @@
             this.saveteamBtn.UseVisualStyleBackColor = true;
             this.saveteamBtn.Click += new System.EventHandler(this.saveteamBtn_Click);
             // 
+            // teamnameLbl
+            // 
+            this.teamnameLbl.AutoSize = true;
+            this.teamnameLbl.Location = new System.Drawing.Point(778, 293);
+            this.teamnameLbl.Name = "teamnameLbl";
+            this.teamnameLbl.Size = new System.Drawing.Size(35, 13);
+            this.teamnameLbl.TabIndex = 8;
+            this.teamnameLbl.Text = "label1";
+            // 
+            // gamenameLbl
+            // 
+            this.gamenameLbl.AutoSize = true;
+            this.gamenameLbl.Location = new System.Drawing.Point(778, 269);
+            this.gamenameLbl.Name = "gamenameLbl";
+            this.gamenameLbl.Size = new System.Drawing.Size(35, 13);
+            this.gamenameLbl.TabIndex = 9;
+            this.gamenameLbl.Text = "label1";
+            // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
             this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.Controls.Add(this.gamenameLbl);
+            this.Controls.Add(this.teamnameLbl);
             this.Controls.Add(this.saveteamBtn);
             this.Controls.Add(this.teamDropdown);
             this.Controls.Add(this.loginLbl);
@@ -186,5 +210,7 @@
         private System.Windows.Forms.Label loginLbl;
         private System.Windows.Forms.ComboBox teamDropdown;
         private System.Windows.Forms.Button saveteamBtn;
+        private System.Windows.Forms.Label teamnameLbl;
+        private System.Windows.Forms.Label gamenameLbl;
     }
 }
