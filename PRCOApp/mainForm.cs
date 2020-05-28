@@ -13,6 +13,9 @@ using System.Windows.Forms;
 //uses FontAwesome.Sharp. https://www.nuget.org/packages/FontAwesome.Sharp/5.12.1
 //uses MySQL.Data. https://www.nuget.org/packages/MySql.Data/8.0.20
 
+//This is the main landing page for users, and would provide a hub of information and resources for players,
+//but primarily to serve the function of populating game sessions and statistics into a database.
+
 namespace PRCOApp
 {
     public partial class mainForm : Form
@@ -32,7 +35,8 @@ namespace PRCOApp
             this.currentlogin = newlogin;
             this.successfulConn = SQLConnString;
         }
-
+        //a blank constructor is made so that this form can be accessed again without the need of passing any variables. 
+        //needed when finishing submission/quitting so that one can return to main menu.
         public mainForm()
         {
             InitializeComponent();
@@ -140,7 +144,8 @@ namespace PRCOApp
             }          
         }
            
-        //to move on, the selected game mode is 
+        //to move on, the selected game mode is appended to a value and applied to the game object with a setter.
+        //a new fork is opened with variables passed.
         private void sessionstartBtn_Click(object sender, EventArgs e)
         {
             string selectedGameMode = gamemodeDropdown.Text;
@@ -149,7 +154,7 @@ namespace PRCOApp
             newgame.setGameMode(selectedGameMode);
 
             this.Hide();
-            var runningsessionform = new runningsessionForm(newgame, currentTeam, currentlogin, successfulConn);
+            var runningsessionform = new runningsessionForm(newgame, currentlogin, successfulConn);
             runningsessionform.FormClosed += (s, args) => this.Close();
             runningsessionform.Show();
 
