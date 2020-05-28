@@ -10,12 +10,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-//uses FontAwesome.Sharp. https://github.com/awesome-inc/FontAwesome.Sharp
+//uses FontAwesome.Sharp. https://www.nuget.org/packages/FontAwesome.Sharp/5.12.1
+//uses MySQL.Data. https://www.nuget.org/packages/MySql.Data/8.0.20
 
 namespace PRCOApp
 {
     public partial class mainForm : Form
     {
+        //predefining some public variables that get used across various methods.
         string successfulConn;
         Login currentlogin;
         Team currentTeam = new Team();
