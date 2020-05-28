@@ -12,17 +12,22 @@ namespace PRCOApp
 {
     public partial class runningsessionForm : Form
     {
+        Login runninglogin;
         Game runninggame;
         Team runningteam;
         string startDateTimeSQLForm;
+        string successfulconn;
+
         int i = 1;
         DateTime ticker = new DateTime();
         //timer value
-        public runningsessionForm(Game selectedGame, Team selectedTeam)
+        public runningsessionForm(Game selectedGame, Team selectedTeam, Login selectedLogin, string connstring)
         {
             InitializeComponent();
             this.runninggame = selectedGame;
             this.runningteam = selectedTeam;
+            this.runninglogin = selectedLogin;
+            this.successfulconn = connstring;
         }
 
         private void runningsessionForm_Load(object sender, EventArgs e)
@@ -39,7 +44,7 @@ namespace PRCOApp
             string endDateTimeSQLForm = endDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
             this.Hide();
-            var completesessionForm = new completesessionForm(runninggame, runningteam, startDateTimeSQLForm, endDateTimeSQLForm);
+            var completesessionForm = new completesessionForm(runninggame, runningteam, runninglogin, startDateTimeSQLForm, endDateTimeSQLForm, successfulconn);
             completesessionForm.FormClosed += (s, args) => this.Close();
             completesessionForm.Show();
         }

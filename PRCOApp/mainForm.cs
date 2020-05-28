@@ -128,7 +128,7 @@ namespace PRCOApp
             newgame.setGameMode(selectedGameMode);
 
             this.Hide();
-            var runningsessionform = new runningsessionForm(newgame, currentTeam);
+            var runningsessionform = new runningsessionForm(newgame, currentTeam, currentlogin, successfulConn);
             runningsessionform.FormClosed += (s, args) => this.Close();
             runningsessionform.Show();
 
