@@ -54,7 +54,7 @@
             this.panelSidebar.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelSidebar.Location = new System.Drawing.Point(0, 0);
             this.panelSidebar.Name = "panelSidebar";
-            this.panelSidebar.Size = new System.Drawing.Size(220, 768);
+            this.panelSidebar.Size = new System.Drawing.Size(220, 479);
             this.panelSidebar.TabIndex = 0;
             // 
             // startBtn
@@ -109,20 +109,22 @@
             // 
             this.gamemodeDropdown.Enabled = false;
             this.gamemodeDropdown.FormattingEnabled = true;
-            this.gamemodeDropdown.Location = new System.Drawing.Point(681, 317);
+            this.gamemodeDropdown.Location = new System.Drawing.Point(459, 402);
             this.gamemodeDropdown.Name = "gamemodeDropdown";
             this.gamemodeDropdown.Size = new System.Drawing.Size(247, 21);
             this.gamemodeDropdown.TabIndex = 3;
+            this.gamemodeDropdown.Visible = false;
             // 
             // sessionstartBtn
             // 
             this.sessionstartBtn.Enabled = false;
-            this.sessionstartBtn.Location = new System.Drawing.Point(772, 344);
+            this.sessionstartBtn.Location = new System.Drawing.Point(550, 429);
             this.sessionstartBtn.Name = "sessionstartBtn";
             this.sessionstartBtn.Size = new System.Drawing.Size(75, 23);
             this.sessionstartBtn.TabIndex = 4;
             this.sessionstartBtn.Text = "Start";
             this.sessionstartBtn.UseVisualStyleBackColor = true;
+            this.sessionstartBtn.Visible = false;
             this.sessionstartBtn.Click += new System.EventHandler(this.sessionstartBtn_Click);
             // 
             // loginLbl
@@ -138,45 +140,49 @@
             // teamDropdown
             // 
             this.teamDropdown.FormattingEnabled = true;
-            this.teamDropdown.Location = new System.Drawing.Point(681, 261);
+            this.teamDropdown.Location = new System.Drawing.Point(459, 346);
             this.teamDropdown.Name = "teamDropdown";
             this.teamDropdown.Size = new System.Drawing.Size(75, 21);
             this.teamDropdown.TabIndex = 6;
+            this.teamDropdown.Visible = false;
             // 
             // saveteamBtn
             // 
-            this.saveteamBtn.Location = new System.Drawing.Point(681, 288);
+            this.saveteamBtn.Location = new System.Drawing.Point(459, 373);
             this.saveteamBtn.Name = "saveteamBtn";
             this.saveteamBtn.Size = new System.Drawing.Size(75, 23);
             this.saveteamBtn.TabIndex = 7;
             this.saveteamBtn.Text = "Select Team";
             this.saveteamBtn.UseVisualStyleBackColor = true;
+            this.saveteamBtn.Visible = false;
             this.saveteamBtn.Click += new System.EventHandler(this.saveteamBtn_Click);
             // 
             // teamnameLbl
             // 
             this.teamnameLbl.AutoSize = true;
-            this.teamnameLbl.Location = new System.Drawing.Point(778, 293);
+            this.teamnameLbl.Location = new System.Drawing.Point(556, 378);
             this.teamnameLbl.Name = "teamnameLbl";
             this.teamnameLbl.Size = new System.Drawing.Size(35, 13);
             this.teamnameLbl.TabIndex = 8;
             this.teamnameLbl.Text = "label1";
+            this.teamnameLbl.Visible = false;
             // 
             // gamenameLbl
             // 
             this.gamenameLbl.AutoSize = true;
-            this.gamenameLbl.Location = new System.Drawing.Point(778, 269);
+            this.gamenameLbl.Location = new System.Drawing.Point(556, 354);
             this.gamenameLbl.Name = "gamenameLbl";
             this.gamenameLbl.Size = new System.Drawing.Size(35, 13);
             this.gamenameLbl.TabIndex = 9;
             this.gamenameLbl.Text = "label1";
+            this.gamenameLbl.Visible = false;
             // 
             // mainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(1024, 768);
+            this.ClientSize = new System.Drawing.Size(1024, 479);
             this.Controls.Add(this.gamenameLbl);
             this.Controls.Add(this.teamnameLbl);
             this.Controls.Add(this.saveteamBtn);

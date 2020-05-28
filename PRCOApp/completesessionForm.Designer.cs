@@ -39,7 +39,7 @@
             // stattypeDropdown
             // 
             this.stattypeDropdown.FormattingEnabled = true;
-            this.stattypeDropdown.Location = new System.Drawing.Point(120, 99);
+            this.stattypeDropdown.Location = new System.Drawing.Point(27, 28);
             this.stattypeDropdown.Name = "stattypeDropdown";
             this.stattypeDropdown.Size = new System.Drawing.Size(174, 21);
             this.stattypeDropdown.TabIndex = 0;
@@ -48,7 +48,7 @@
             // currentvalTxt
             // 
             this.currentvalTxt.AutoSize = true;
-            this.currentvalTxt.Location = new System.Drawing.Point(133, 134);
+            this.currentvalTxt.Location = new System.Drawing.Point(40, 63);
             this.currentvalTxt.Name = "currentvalTxt";
             this.currentvalTxt.Size = new System.Drawing.Size(104, 13);
             this.currentvalTxt.TabIndex = 1;
@@ -56,14 +56,14 @@
             // 
             // desiredvalTxt
             // 
-            this.desiredvalTxt.Location = new System.Drawing.Point(120, 150);
+            this.desiredvalTxt.Location = new System.Drawing.Point(27, 79);
             this.desiredvalTxt.Name = "desiredvalTxt";
             this.desiredvalTxt.Size = new System.Drawing.Size(174, 20);
             this.desiredvalTxt.TabIndex = 2;
             // 
             // cancelBtn
             // 
-            this.cancelBtn.Location = new System.Drawing.Point(120, 196);
+            this.cancelBtn.Location = new System.Drawing.Point(27, 125);
             this.cancelBtn.Name = "cancelBtn";
             this.cancelBtn.Size = new System.Drawing.Size(90, 23);
             this.cancelBtn.TabIndex = 3;
@@ -73,7 +73,7 @@
             // 
             // saveBtn
             // 
-            this.saveBtn.Location = new System.Drawing.Point(214, 196);
+            this.saveBtn.Location = new System.Drawing.Point(121, 125);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(80, 23);
             this.saveBtn.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             // submitBtn
             // 
-            this.submitBtn.Location = new System.Drawing.Point(120, 242);
+            this.submitBtn.Location = new System.Drawing.Point(27, 171);
             this.submitBtn.Name = "submitBtn";
             this.submitBtn.Size = new System.Drawing.Size(174, 23);
             this.submitBtn.TabIndex = 5;
@@ -96,7 +96,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DimGray;
-            this.ClientSize = new System.Drawing.Size(431, 409);
+            this.ClientSize = new System.Drawing.Size(238, 232);
             this.Controls.Add(this.submitBtn);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.cancelBtn);

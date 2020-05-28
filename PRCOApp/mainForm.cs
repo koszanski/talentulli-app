@@ -35,15 +35,6 @@ namespace PRCOApp
             InitializeComponent();
         }
 
-        //needed pulled sql database objects:
-        //teams, potentially for verification against possible games that one can select
-        //game, gamemode, dropdown before initiating a sesh
-
-        //pull statistics types matching to game mode (AND IDEALLY CHECK AGAINST GAME)
-
-        //session (obvious to alter)
-        //stats (obvious to alter)
-
         //potentially: upcoming event display by pulling event?
         //announcements
 
@@ -52,20 +43,38 @@ namespace PRCOApp
 
         private void homeBtn_Click(object sender, EventArgs e)
         {
-            //show/hide form elements
+            teamDropdown.Hide();
+            gamenameLbl.Hide();
+            saveteamBtn.Hide();
+            teamnameLbl.Hide();
+            gamemodeDropdown.Hide();
+            sessionstartBtn.Hide();
         }
 
         private void StartBtn_Click(object sender, EventArgs e)
         {
-            //show hide form elements
+            teamDropdown.Show();
+            gamenameLbl.Show();
+            saveteamBtn.Show();
+            teamnameLbl.Show();
+            gamemodeDropdown.Show();
+            sessionstartBtn.Show();
+
+            initQuery();
         }
 
         private void mainForm_Load(object sender, EventArgs e)
         {
             loginLbl.Text = "Welcome, " + currentlogin.dispLoggedin() + ".";
+            
+
+        }
+
+        public void initQuery()
+        {
             try
             {
-                 
+
                 string quer1 = "SELECT * FROM team_players WHERE teamPlayerID = '" + (currentlogin.getID()).ToString().Trim() + "'";
 
                 MySqlConnection conn = new MySqlConnection(successfulConn);
@@ -78,14 +87,13 @@ namespace PRCOApp
                 teamDropdown.BindingContext = this.BindingContext;
 
                 labelQuery();
-                                           
+
             }
 
             catch (MySqlException ex)
             {
                 MessageBox.Show("Something went wrong! " + ex.ToString());
             }
-
         }
 
         public void labelQuery()
