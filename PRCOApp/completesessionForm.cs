@@ -82,18 +82,12 @@ namespace PRCOApp
 
             while (i != rowamount)
             {
-                string submitQuer = "INSERT INTO statistic (statSessionID, statTypeID, statValue) VALUES ('" + sessionID + "', '" +  + "', '";
+                string submitQuer = "INSERT INTO statistic (statSessionID, statTypeID, statValue) VALUES ('" + sessionID + "', '" + statTable.Rows[i][0] + "', '" + statTable.Rows[i][2] + "');";
                 MySqlConnection connfinal = new MySqlConnection(successfulconn);
                 MySqlCommand finalsubmitcommand = new MySqlCommand(submitQuer, connfinal);
                 finalsubmitcommand.ExecuteNonQuery();
                 i++;
             }
-
-            //THE FINAL QUERY, INSERT INTO GAMING SESSION, STATISTICS INSERTS (will need sessionID associated with it too)
-            //POTENTIAL SOLUTION FOR STATS, FOR EVERY STATISTIC TYPE IN DATATABLE/COUNTER/ETC, CALL A METHOD THAT WILL INSERT INTO THE TABLE
-
-            //insert, follwowed by select so that i can pull the sessionID(?)
-            //use a unique traits to select, start+end+playerID
         }
 
         private void stattypeDropdown_SelectedIndexChanged(object sender, EventArgs e)
