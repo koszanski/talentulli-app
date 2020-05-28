@@ -44,7 +44,7 @@ namespace PRCOApp
             string endDateTimeSQLForm = endDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
 
             this.Hide();
-            var completesessionForm = new completesessionForm(runninggame, runningteam, runninglogin, startDateTimeSQLForm, endDateTimeSQLForm, successfulconn);
+            var completesessionForm = new completesessionForm(runninggame, runninglogin, startDateTimeSQLForm, endDateTimeSQLForm, successfulconn);
             completesessionForm.FormClosed += (s, args) => this.Close();
             completesessionForm.Show();
         }

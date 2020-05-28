@@ -43,6 +43,7 @@
             this.stattypeDropdown.Name = "stattypeDropdown";
             this.stattypeDropdown.Size = new System.Drawing.Size(174, 21);
             this.stattypeDropdown.TabIndex = 0;
+            this.stattypeDropdown.SelectedIndexChanged += new System.EventHandler(this.stattypeDropdown_SelectedIndexChanged);
             // 
             // currentvalTxt
             // 
@@ -68,6 +69,7 @@
             this.cancelBtn.TabIndex = 3;
             this.cancelBtn.Text = "Cancel";
             this.cancelBtn.UseVisualStyleBackColor = true;
+            this.cancelBtn.Click += new System.EventHandler(this.cancelBtn_Click);
             // 
             // saveBtn
             // 

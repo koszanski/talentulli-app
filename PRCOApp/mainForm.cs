@@ -30,6 +30,10 @@ namespace PRCOApp
             this.successfulConn = SQLConnString;
         }
 
+        public mainForm()
+        {
+            InitializeComponent();
+        }
 
         //needed pulled sql database objects:
         //teams, potentially for verification against possible games that one can select
