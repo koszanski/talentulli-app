@@ -8,6 +8,8 @@ namespace PRCOApp
 {
     public class Game
     {
+
+        //application wide class with information stored pertaining to the game-related tables
         string gameGame;
         string gameGameMode;
 

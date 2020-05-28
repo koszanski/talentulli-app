@@ -9,9 +9,10 @@ namespace PRCOApp
 {
     public class Team
     {
+
+        //application wide class for retaining info relating to teams
         int teamID;
         int teamGameID;
-        //populate, have a getter/setter for TeamID, team name, team gameID
 
         public Team(int theID, int theteamGameID)
         {

@@ -25,6 +25,7 @@ namespace PRCOApp
         DataTable teamPlayerTable;
         DataTable gameTable;
 
+        //a constructor is made to pass variables from the previous form over to this one, with the values being saved to public variables successfulconn and currentlogin.
         public mainForm(Login newlogin, string SQLConnString)
         {
             InitializeComponent();
@@ -37,12 +38,9 @@ namespace PRCOApp
             InitializeComponent();
         }
 
-        //potentially: upcoming event display by pulling event?
-        //announcements
-
-        //most likely will not be implemented: checking against objective, seeing whether its met, congratulating if met
-
-
+        
+        //a home and start session button show/hide form elements for aesthetic purposes.
+        //this can potentially allow acommodation of different UX elements outside of just starting a game session.
         private void homeBtn_Click(object sender, EventArgs e)
         {
             teamDropdown.Hide();
@@ -65,18 +63,20 @@ namespace PRCOApp
             initQuery();
         }
 
+        //username of the current person logged in is displayed as feedback in a form.
         private void mainForm_Load(object sender, EventArgs e)
         {
             loginLbl.Text = "Welcome, " + currentlogin.dispLoggedin() + ".";
-            
-
+           
         }
 
+        //an initial query that is run every time the start button to show the start sesion form is pressed.
+        //this is because this cannot be loaded on form_load, as form items pertaining to this are hidden by default.
         public void initQuery()
         {
             try
             {
-
+                //the compound team_players table is looked up on the basis of the logged in player to discern what teams he is in.
                 string quer1 = "SELECT * FROM team_players WHERE teamPlayerID = '" + (currentlogin.getID()).ToString().Trim() + "'";
 
                 MySqlConnection conn = new MySqlConnection(successfulConn);
@@ -84,6 +84,7 @@ namespace PRCOApp
                 teamPlayerTable = new DataTable();
                 myda.Fill(teamPlayerTable);
 
+                //the datatable is then projected onto the dropdown/combobox for team selection.
                 teamDropdown.DataSource = teamPlayerTable.DefaultView;
                 teamDropdown.DisplayMember = "teamID";
                 teamDropdown.BindingContext = this.BindingContext;
@@ -98,25 +99,31 @@ namespace PRCOApp
             }
         }
 
+        //a query that is referred to multiple times to feed information into labels on the form.
         public void labelQuery()
         {
             try
             {
+                //the currently selected teamID from the dropdown is saved to a team object.
                 int savedID = int.Parse(teamDropdown.Text);
                 currentTeam.setTeamID(savedID);
 
+                //a query is ran, calling a getter within the class method to get a parameter of the object.
+                //this simply puts the current team into a datatable...
                 string quer2 = "SELECT * FROM team WHERE teamID = '" + currentTeam.getTeamID().ToString().Trim() + "'";
                 MySqlConnection conn2 = new MySqlConnection(successfulConn);
                 MySqlDataAdapter myda2 = new MySqlDataAdapter(quer2, conn2);
                 teamTable = new DataTable();
                 myda2.Fill(teamTable);
-
+                //...so that the name of the team can be pulled from an adjacent column and appended to a label.
                 string teamname = (string)teamTable.Rows[0][1];
                 teamnameLbl.Text = teamname;
 
+                //similarly the int for the associated gameID is pulled from this same team datatable.
                 int initialGameID = int.Parse(teamTable.Rows[0][2].ToString());
                 currentTeam.setteamGameID(initialGameID);
 
+                //a query is ran to find the name of the game and then added to a string value to be printed onto a label.
                 string quer3 = "SELECT * FROM game WHERE gameID = '" + currentTeam.getGameID().ToString().Trim() + "'";
                 MySqlConnection conn3 = new MySqlConnection(successfulConn);
                 MySqlDataAdapter myda3 = new MySqlDataAdapter(quer3, conn3);
@@ -133,7 +140,7 @@ namespace PRCOApp
             }          
         }
            
-
+        //to move on, the selected game mode is 
         private void sessionstartBtn_Click(object sender, EventArgs e)
         {
             string selectedGameMode = gamemodeDropdown.Text;
@@ -152,6 +159,7 @@ namespace PRCOApp
         {
             labelQuery();
 
+            //similarly as above, the current game id is used to look up related gamemodes appropriate to that game and placed in a dropdown/combobox for the user to select.
             try
             {
                 string quer4 = "SELECT * FROM game_mode WHERE gameID = '" + currentTeam.getGameID().ToString().Trim() + "'";
@@ -164,6 +172,7 @@ namespace PRCOApp
                 gamemodeDropdown.DisplayMember = "gamemodeName";
                 gamemodeDropdown.BindingContext = this.BindingContext;
 
+                //to prevent premature access or errors, the boxes for selecting game-mode are initially grayed out, enabled once a team is selected.
                 gamemodeDropdown.Enabled = true;
                 sessionstartBtn.Enabled = true;
             }
