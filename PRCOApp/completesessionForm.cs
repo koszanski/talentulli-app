@@ -33,21 +33,24 @@ namespace PRCOApp
 
         private void completesessionForm_Load(object sender, EventArgs e)
         {
-            string dropdownQuer = "SELECT stattype.statTypeID, stattype.statName FROM stattype INNER JOIN game_mode_stats ON stattype.statTypeID=game_mode_stats.gameStatTypeID WHERE game_mode_stats.gamemodeID = " + runninggame.getGameMode().Trim() + ";";
+            try
+            {
+                string dropdownQuer = "SELECT stattype.statTypeID, stattype.statName FROM stattype INNER JOIN game_mode_stats ON stattype.statTypeID=game_mode_stats.gameStatTypeID INNER JOIN game_mode ON game_mode_stats.gamemodeID=game_mode.gamemodeID WHERE game_mode.gamemodeName = '" + runninggame.getGameMode().Trim() + "';";
 
-            MySqlConnection conn = new MySqlConnection(successfulconn);
-            MySqlDataAdapter myda = new MySqlDataAdapter(dropdownQuer, conn);
-            stattypeTable = new DataTable();
-            myda.Fill(stattypeTable);
+                MySqlConnection conn = new MySqlConnection(successfulconn);
+                MySqlDataAdapter myda = new MySqlDataAdapter(dropdownQuer, conn);
+                stattypeTable = new DataTable();
+                myda.Fill(stattypeTable);
 
-            stattypeDropdown.DataSource = stattypeTable.DefaultView;
-            stattypeDropdown.DisplayMember = "statName";
-            stattypeDropdown.BindingContext = this.BindingContext;
-
-
-            //final result will be an insert query into game session, then
-            //multiple statistics for every single statistic committed to memory
-
+                stattypeDropdown.DataSource = stattypeTable.DefaultView;
+                stattypeDropdown.DisplayMember = "statName";
+                stattypeDropdown.BindingContext = this.BindingContext;
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Something went wrong! " + ex.ToString());
+            }
+           
         }
 
         private void saveBtn_Click(object sender, EventArgs e)

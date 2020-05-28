@@ -49,9 +49,9 @@
             this.currentvalTxt.AutoSize = true;
             this.currentvalTxt.Location = new System.Drawing.Point(133, 134);
             this.currentvalTxt.Name = "currentvalTxt";
-            this.currentvalTxt.Size = new System.Drawing.Size(35, 13);
+            this.currentvalTxt.Size = new System.Drawing.Size(104, 13);
             this.currentvalTxt.TabIndex = 1;
-            this.currentvalTxt.Text = "label1";
+            this.currentvalTxt.Text = "Save to a value first!";
             // 
             // desiredvalTxt
             // 

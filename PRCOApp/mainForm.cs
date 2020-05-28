@@ -122,7 +122,7 @@ namespace PRCOApp
 
         private void sessionstartBtn_Click(object sender, EventArgs e)
         {
-            string selectedGameMode = gamemodeDropdown.SelectedItem.ToString();
+            string selectedGameMode = gamemodeDropdown.Text;
 
             Game newgame = new Game();
             newgame.setGameMode(selectedGameMode);
