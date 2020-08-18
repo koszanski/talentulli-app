@@ -17,16 +17,15 @@ namespace PRCOApp
 {
     public partial class loginForm : Form
     {
-        public loginForm()
+        public loginForm(string newIP)
         {
             InitializeComponent();
+            this.currentIP = newIP;
+            SQLConnString = "Server=" + currentIP + ";Database=esportorgdb;User id=root;Password=;";
         }
-
-
-        //static connection string baked into sourcecode pointing towards internal SQL server.
-        //slightly disadvantageous as the only way to change server IP, database name, etc. is to recompile from source with another connection string.
-        //however since the source is available, this probably will not be an issue for organisation administrators.
-        string SQLConnString = "Server=localhost;Database=esportorgdb;User id=root;Password=;";
+        string currentIP;
+        string SQLConnString;
+        
 
         //upon load of the form, a quick connection is attempted just to see if it's possible to interface with the db.
         //a try-catch is used for sql error handling
