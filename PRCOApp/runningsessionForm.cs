@@ -39,7 +39,7 @@ namespace PRCOApp
         {
             timer1.Enabled = true;
             DateTime startDateTime = DateTime.Now;
-            startDateTimeSQLForm = startDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            startDateTimeSQLForm = startDateTime.ToString("yyyy-MM-dd HH:mm:ss");
         }
 
         //once the "conclude session" button is pressed, timer stops, another snapshot is taken.
@@ -48,7 +48,7 @@ namespace PRCOApp
         {
             timer1.Enabled = false;
             DateTime endDateTime = DateTime.Now;
-            string endDateTimeSQLForm = endDateTime.ToString("yyyy-MM-dd HH:mm:ss.fff");
+            string endDateTimeSQLForm = endDateTime.ToString("yyyy-MM-dd HH:mm:ss");
 
             this.Hide();
             var completesessionForm = new completesessionForm(runninggame, runninglogin, startDateTimeSQLForm, endDateTimeSQLForm, successfulconn);
