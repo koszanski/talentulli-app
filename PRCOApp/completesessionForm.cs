@@ -79,20 +79,29 @@ namespace PRCOApp
                 //first, known session parameters, such as timestamp and player ID are used to insert a query in the database.
                 string sessionQuer = "INSERT INTO gaming_session (gamingSessionStart, gamingSessionEnd, gamingsessionPlayerID) VALUES ('" + startdatetime.Trim() + "', '" + enddatetime.Trim() + "', '" + runninglogin.getID().ToString().Trim() + "');";
                 MySqlConnection conn = new MySqlConnection(successfulconn);
+                if (conn.State != ConnectionState.Open)
+                {
+                    conn.Open();
+                }
                 MySqlCommand submissioncommand = new MySqlCommand(sessionQuer, conn);
+                
                 submissioncommand.ExecuteNonQuery();
 
 
                 //these same parameters are used again to search for the just-created session entry.
                 string selectQuer = "SELECT * FROM gaming_session WHERE gamingSessionStart='" + startdatetime.Trim() + "' AND gamingSessionEnd='" + enddatetime.Trim() + "' AND gamingsessionPlayerID='" + runninglogin.getID().ToString().Trim() + "';";
                 MySqlConnection conn2 = new MySqlConnection(successfulconn);
+                if (conn2.State != ConnectionState.Open)
+                {
+                    conn2.Open();
+                }
                 MySqlDataAdapter myda = new MySqlDataAdapter(selectQuer, conn2);
                 DataTable selectionTable = new DataTable();
                 myda.Fill(selectionTable);
 
                 //datatable for aformentioned search is used to find the primary key ID for the session.
                 //the amount of rows for the statistics type table is also counted, with an integer "i" that serves as a counter is initialised.
-                string sessionID = selectionTable.Rows[0].Field<string>(0);
+                int sessionID = selectionTable.Rows[0].Field<int>(0);
                 int rowamount = statTable.Rows.Count;
                 int i = 0;
 
@@ -102,14 +111,18 @@ namespace PRCOApp
                 //said query contains the session id, the stattypeid, and it's value defined earlier by the player. after the loop ends, a quit to main menu is called.
                 while (i != rowamount)
                 {
-                    string submitQuer = "INSERT INTO statistic (statSessionID, statTypeID, statValue) VALUES ('" + sessionID + "', '" + statTable.Rows[i][0] + "', '" + statTable.Rows[i][2] + "');";
+                    string submitQuer = "INSERT INTO statistic (statSessionID, statTypeID, statValue) VALUES ('" + sessionID.ToString() + "', '" + statTable.Rows[i][0] + "', '" + statTable.Rows[i][2] + "');";
                     MySqlConnection connfinal = new MySqlConnection(successfulconn);
+                    if (connfinal.State != ConnectionState.Open)
+                    {
+                        connfinal.Open();
+                    }
                     MySqlCommand finalsubmitcommand = new MySqlCommand(submitQuer, connfinal);
                     finalsubmitcommand.ExecuteNonQuery();
                     i++;
                 }
-                MessageBox.Show("Stat upload is done.");
-                returntoMain();
+                MessageBox.Show("Stat upload is done. Please restart the application.");
+                Application.Exit();
             }
             catch (MySqlException ex)
             {
