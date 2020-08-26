@@ -22,7 +22,7 @@ namespace PRCOApp
     {
         //predefining some public variables that get used across various methods.
         string successfulConn;
-        Login currentlogin;
+        static Login currentlogin;
         Team currentTeam = new Team();
         DataTable teamTable;
         DataTable teamPlayerTable;
@@ -32,7 +32,7 @@ namespace PRCOApp
         public mainForm(Login newlogin, string SQLConnString)
         {
             InitializeComponent();
-            this.currentlogin = newlogin;
+            currentlogin = newlogin;
             this.successfulConn = SQLConnString;
         }
         //a blank constructor is made so that this form can be accessed again without the need of passing any variables. 
